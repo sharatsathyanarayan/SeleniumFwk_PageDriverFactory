@@ -1,0 +1,40 @@
+package frameworktwo.action.classes;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import frameworktwo.base.classes.PageDriver;
+
+public class LoginAction{
+	
+	WebDriver driver;
+	
+	public LoginAction() {
+		
+		this.driver = PageDriver.getDriver();
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(id = "user-name")
+	@CacheLookup
+	WebElement username;
+	
+	@FindBy(id = "password")
+	@CacheLookup
+	WebElement password;
+	
+	@FindBy(id = "login-button")
+	WebElement loginButton;
+	
+	
+	public void login(String usrname, String pwd) {
+		
+		username.sendKeys(usrname);
+		password.sendKeys(pwd);
+		loginButton.click();	
+	}
+
+}

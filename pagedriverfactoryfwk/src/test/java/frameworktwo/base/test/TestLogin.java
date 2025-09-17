@@ -2,37 +2,31 @@ package frameworktwo.base.test;
 
 import static org.testng.Assert.assertEquals;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 
+import frameworktwo.action.classes.LoginAction;
+import frameworktwo.action.classes.ProductAction;
 import frameworktwo.base.classes.BaseTest;
-import frameworktwo.base.classes.PageDriver;
 
 public class TestLogin extends BaseTest {
 
 	WebDriver driver = null;
 
 	@Test
-	public void loginTest() {
+	public void loginTest() throws InterruptedException {
 
-		driver = PageDriver.getDriver();
+		LoginAction loginClass = new LoginAction();
+		loginClass.login("standard_user", "secret_sauce");
+		
+		ProductAction productHomePage = new ProductAction();
+		productHomePage.waitForProductTitle();
+		
+		
+		System.out.println(productHomePage.getProductTitle().getText().toString());
+		Thread.sleep(5000);
 
-		driver.get("https://www.saucedemo.com/");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
-
-		driver.findElement(By.id("user-name")).sendKeys("standard_user");
-		driver.findElement(By.id("password")).sendKeys("secret_sauce");
-		driver.findElement(By.id("login-button")).click();
-		WebElement productsLogo = wait
-				.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("span[data-test='title']")));
-
-		assertEquals(productsLogo.getText().toString(), "Products");
+		assertEquals(productHomePage.getProductTitle().getText().toString(), "Products");
 
 	}
 

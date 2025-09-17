@@ -1,0 +1,20 @@
+package frameworktwo.action.classes;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+import frameworktwo.base.classes.PageDriver;
+
+public class ProductAction {
+	
+	WebDriver driver;
+	
+	public ProductAction() {
+		this.driver = PageDriver.getDriver();
+		PageFactory.initElements(driver, this);
+	}
+	
+	
+	
+
+}

@@ -1,0 +1,5 @@
+package frameworktwo.action.classes;
+
+public class LoginAction {
+
+}

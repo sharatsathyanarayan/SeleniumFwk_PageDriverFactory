@@ -1,0 +1,20 @@
+package frameworktwo.action.classes;
+
+import org.openqa.selenium.WebDriver;
+
+import frameworktwo.base.classes.PageDriver;
+
+public class LoginAction {
+	
+	WebDriver driver;
+	
+	public LoginAction() {
+		
+		driver = PageDriver.getDriver();
+	}
+	
+	public void login(String username, string pwd) {
+		
+	}
+
+}

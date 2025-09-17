@@ -1,0 +1,33 @@
+package frameworktwo.base.test;
+
+import static org.testng.Assert.assertEquals;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import frameworktwo.action.classes.LoginAction;
+import frameworktwo.action.classes.ProductAction;
+import frameworktwo.base.classes.BaseTest;
+
+public class TestLogin extends BaseTest {
+
+	WebDriver driver = null;
+
+	@Test
+	public void loginTest() {
+
+		LoginAction loginClass = new LoginAction();
+		loginClass.login("standard_user", "secret_sauce");
+		
+		ProductAction productHomePage = new ProductAction();
+		productHomePage.waitForProductTitle();
+		
+		
+		System.out.println(productHomePage.productTitle.getText().toString());
+		Thread.sleep(5);
+
+		assertEquals(productHomePage.productTitle.getText().toString(), "Products");
+
+	}
+
+}
