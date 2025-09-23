@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;pagedriverfactoryfwk/Frameworkone.xml&apos; to &apos;FrameworkTwo.xml&apos;" description="Rename resource &apos;Frameworkone.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Frameworkone.xml" name="FrameworkTwo.xml" stamp="1758062069692" updateReferences="true"/>
-</session>

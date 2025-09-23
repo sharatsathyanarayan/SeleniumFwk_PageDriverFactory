@@ -1,9 +1,0 @@
-package frameworktwo.action.classes;
-
-import org.openqa.selenium.WebDriver;
-
-public class ProductAction {
-	
-	WebDriver driver;
-
-}
