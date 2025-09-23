@@ -1,9 +1,9 @@
 #############################
 # Eclipse
 #############################
-.metadata/
+.metadata/*
 .factorypath
-.settings/
+.settings
 .classpath
 .project
 

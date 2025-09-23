@@ -17,7 +17,7 @@ public class BaseTest {
 	public void setUp() {
 
 		driver = new ChromeDriver();
-		PageDriver.setDriver(driver);
+		PageDriver.getInstance().setDriver(driver);
 		driver.get("https://www.saucedemo.com/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
@@ -26,7 +26,7 @@ public class BaseTest {
 
 	@AfterClass
 	public void tearDown() {
-		driver.quit();
+		PageDriver.getCurrentDriver().quit();
 	}
 
 }

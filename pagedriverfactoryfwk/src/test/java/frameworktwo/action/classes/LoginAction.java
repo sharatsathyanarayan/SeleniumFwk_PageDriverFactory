@@ -14,7 +14,7 @@ public class LoginAction{
 	
 	public LoginAction() {
 		
-		this.driver = PageDriver.getDriver();
+		this.driver = PageDriver.getCurrentDriver();
 		PageFactory.initElements(driver, this);
 	}
 	

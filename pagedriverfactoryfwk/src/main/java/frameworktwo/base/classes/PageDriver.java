@@ -7,13 +7,30 @@ public class PageDriver {
 	
 	
 	private static final ThreadLocal<WebDriver> threadDriver = new ThreadLocal<WebDriver>();
+	private static PageDriver instance = null;
 	
-	public static WebDriver getDriver() {
+	private PageDriver() {
+		
+	}
+	
+	public static PageDriver getInstance() {
+		if(instance == null) {
+			instance = new PageDriver();
+		}
+		return instance;
+	}
+	
+	public WebDriver getDriver() {
 		return threadDriver.get();
 	}
 	
-	public static void setDriver(WebDriver driver) {
+	public void setDriver(WebDriver driver) {
 		threadDriver.set(driver);
+	}
+	
+	public static WebDriver getCurrentDriver() {
+		return PageDriver.getInstance().getDriver();
+		
 	}
 
 }

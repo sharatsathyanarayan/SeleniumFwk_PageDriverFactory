@@ -13,7 +13,7 @@ WebDriver driver;
 	
 	public LoginFailureAction() {
 		
-		this.driver = PageDriver.getDriver();
+		this.driver = PageDriver.getCurrentDriver();
 		PageFactory.initElements(driver, this);
 	}
 	

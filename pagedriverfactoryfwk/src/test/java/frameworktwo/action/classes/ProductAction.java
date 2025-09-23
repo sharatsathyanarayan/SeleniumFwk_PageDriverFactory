@@ -24,7 +24,7 @@ public class ProductAction {
 	}
 
 	public ProductAction() {
-		this.driver = PageDriver.getDriver();
+		this.driver = PageDriver.getCurrentDriver();
 		PageFactory.initElements(driver, this);
 	}
 	
