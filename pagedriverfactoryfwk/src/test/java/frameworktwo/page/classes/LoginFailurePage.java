@@ -1,4 +1,4 @@
-package frameworktwo.action.classes;
+package frameworktwo.page.classes;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,11 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import frameworktwo.base.classes.PageDriver;
 
-public class LoginFailureAction {
+public class LoginFailurePage {
 	
 WebDriver driver;
 	
-	public LoginFailureAction() {
+	public LoginFailurePage() {
 		
 		this.driver = PageDriver.getCurrentDriver();
 		PageFactory.initElements(driver, this);

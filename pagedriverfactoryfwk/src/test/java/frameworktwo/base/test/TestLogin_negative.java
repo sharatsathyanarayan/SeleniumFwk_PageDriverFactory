@@ -2,14 +2,12 @@ package frameworktwo.base.test;
 
 import static org.testng.Assert.assertEquals;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-import frameworktwo.action.classes.LoginAction;
-import frameworktwo.action.classes.LoginFailureAction;
 import frameworktwo.base.classes.BaseTest;
+import frameworktwo.page.classes.LoginFailurePage;
+import frameworktwo.page.classes.LoginPage;
 
 public class TestLogin_negative extends BaseTest {
 
@@ -18,10 +16,10 @@ public class TestLogin_negative extends BaseTest {
 	@Test
 	public void loginNegativeTest() {
 
-		LoginAction loginClass = new LoginAction();
+		LoginPage loginClass = new LoginPage();
 		loginClass.login("standard_user", "wrong_password");
 		
-		LoginFailureAction failureToLogin = new LoginFailureAction();
+		LoginFailurePage failureToLogin = new LoginFailurePage();
 		
 
 		assertEquals(failureToLogin.getLoginFailureText().getText().toString(), "Epic sadface: Username and password do not match any user in this service");

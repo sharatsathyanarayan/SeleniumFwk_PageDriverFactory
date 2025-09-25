@@ -5,6 +5,7 @@
         <classes>
             <class name="frameworktwo.base.test.TestLogin"/>
             <class name="frameworktwo.base.test.TestLogin_negative"/>
+            <class name="frameworktwo.base.test.ProductsTest"/>
         </classes>
     </test>
 </suite>

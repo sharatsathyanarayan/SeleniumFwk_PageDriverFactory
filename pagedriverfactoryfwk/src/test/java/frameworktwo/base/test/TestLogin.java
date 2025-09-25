@@ -5,9 +5,9 @@ import static org.testng.Assert.assertEquals;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-import frameworktwo.action.classes.LoginAction;
-import frameworktwo.action.classes.ProductAction;
 import frameworktwo.base.classes.BaseTest;
+import frameworktwo.page.classes.LoginPage;
+import frameworktwo.page.classes.ProductsPage;
 
 public class TestLogin extends BaseTest {
 
@@ -16,16 +16,13 @@ public class TestLogin extends BaseTest {
 	@Test
 	public void loginTest() throws InterruptedException {
 
-		LoginAction loginClass = new LoginAction();
+		LoginPage loginClass = new LoginPage();
 		loginClass.login("standard_user", "secret_sauce");
 		
-		ProductAction productHomePage = new ProductAction();
+		ProductsPage productHomePage = new ProductsPage();
 		productHomePage.waitForProductTitle();
 		
-		
 		System.out.println(productHomePage.getProductTitle().getText().toString());
-		Thread.sleep(5000);
-
 		assertEquals(productHomePage.getProductTitle().getText().toString(), "Products");
 
 	}

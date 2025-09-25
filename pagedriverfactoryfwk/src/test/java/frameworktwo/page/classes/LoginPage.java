@@ -1,18 +1,16 @@
-package frameworktwo.action.classes;
+package frameworktwo.page.classes;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-import frameworktwo.base.classes.PageDriver;
-
-public class LoginAction{
+public class LoginPage extends BasePage{
 	
 	WebDriver driver;
 	
-	public LoginAction() {
+	
+	//This is orthodox way of using Page Factory
+	
+	/*public LoginPage() {
 		
 		this.driver = PageDriver.getCurrentDriver();
 		PageFactory.initElements(driver, this);
@@ -28,13 +26,21 @@ public class LoginAction{
 	
 	@FindBy(id = "login-button")
 	WebElement loginButton;
+	*/
+	
+	
+	//Alternate approach
+	
+	By username = By.id("user-name");
+	By password = By.id("password");
+	By loginButton = By.id("login-button");
 	
 	
 	public void login(String usrname, String pwd) {
 		
-		username.sendKeys(usrname);
-		password.sendKeys(pwd);
-		loginButton.click();	
+		type(username, usrname);
+		type(password, pwd);
+		click(loginButton);
 	}
 
 }
