@@ -32,6 +32,10 @@ public class ProductsPage extends BasePage {
 	By inventoryItems = By.cssSelector(".inventory_item");
 	By add_To_Cart_Buttons = By.cssSelector(".inventory_item button");
 	By shopping_Cart_Badge = By.cssSelector(".shopping_cart_badge");
+	By inventory_item_name = By.cssSelector(".inventory_item:nth-child(1) .inventory_item_name");
+	By dropDown = By.cssSelector(".product_sort_container");
+	By inventory_item_price = By.cssSelector(".inventory_item:nth-child(1) .inventory_item_price");
+	
 
 	public void waitForProductTitle() {
 		waitForElement(productTitle);
@@ -51,5 +55,17 @@ public class ProductsPage extends BasePage {
 	
 	public String getCartCount() {
 		return getText(shopping_Cart_Badge);
+	}
+	
+	public String get_First_Item_Name_In_The_Inventory_List() {
+		return getText(inventory_item_name);
+	}
+	
+	public String get_First_Item_Price_In_The_Inventory_List() {
+		return getText(inventory_item_price);
+	}
+	
+	public void selectOptionByText(String option) {
+		 selectByOption(dropDown,option);
 	}
 }
