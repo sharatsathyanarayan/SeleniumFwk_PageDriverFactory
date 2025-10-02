@@ -2,6 +2,8 @@ package frameworktwo.base.test;
 
 import static org.testng.Assert.assertEquals;
 
+import java.awt.AWTException;
+
 import org.testng.annotations.Test;
 
 import frameworktwo.base.classes.BaseTest;
@@ -14,8 +16,8 @@ public class ProductsTest extends BaseTest {
 	ProductsPage productHomePage = new ProductsPage();
 
 	@Test(priority = 1)
-	public void loginTest() throws InterruptedException {
-		loginClass.login("standard_user", "secret_sauce");
+	public void loginTest() throws InterruptedException, AWTException {
+		loginClass.login();
 		productHomePage.waitForProductTitle();
 		System.out.println(productHomePage.getProductTitle().getText().toString());
 		assertEquals(productHomePage.getProductTitle().getText().toString(), "Products");

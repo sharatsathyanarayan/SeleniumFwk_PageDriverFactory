@@ -3,6 +3,8 @@ package frameworktwo.page.classes;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import frameworktwo.base.classes.Config;
+
 public class LoginPage extends BasePage{
 	
 	WebDriver driver;
@@ -40,6 +42,13 @@ public class LoginPage extends BasePage{
 		
 		type(username, usrname);
 		type(password, pwd);
+		click(loginButton);
+	}
+	
+	public void login() {
+		
+		type(username, Config.validUserName);
+		type(password, Config.ValidPassword);
 		click(loginButton);
 	}
 

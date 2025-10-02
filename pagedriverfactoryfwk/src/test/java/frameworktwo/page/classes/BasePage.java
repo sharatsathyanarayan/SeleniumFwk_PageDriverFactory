@@ -52,5 +52,4 @@ public class BasePage {
 		Select selectOption = new Select(getWebElement(byLocator));
 		selectOption.selectByVisibleText(option);
 	}
-
 }

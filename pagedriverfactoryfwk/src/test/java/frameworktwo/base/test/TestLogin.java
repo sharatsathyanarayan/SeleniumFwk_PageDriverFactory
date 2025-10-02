@@ -17,7 +17,7 @@ public class TestLogin extends BaseTest {
 	public void loginTest() throws InterruptedException {
 
 		LoginPage loginClass = new LoginPage();
-		loginClass.login("standard_user", "secret_sauce");
+		loginClass.login();
 		
 		ProductsPage productHomePage = new ProductsPage();
 		productHomePage.waitForProductTitle();

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import frameworktwo.base.classes.BaseTest;
+import frameworktwo.base.classes.Config;
 import frameworktwo.page.classes.LoginFailurePage;
 import frameworktwo.page.classes.LoginPage;
 
@@ -17,7 +18,7 @@ public class TestLogin_negative extends BaseTest {
 	public void loginNegativeTest() {
 
 		LoginPage loginClass = new LoginPage();
-		loginClass.login("standard_user", "wrong_password");
+		loginClass.login(Config.validUserName, Config.inValidPassword);
 		
 		LoginFailurePage failureToLogin = new LoginFailurePage();
 		
