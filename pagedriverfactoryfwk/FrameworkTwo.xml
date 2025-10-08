@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="FrameWorkTwo">
-    <test name="LoginTest">
+<suite name="FrameWorkTwo" parallel="tests" thread-count="2">
+    <test name="LoginTestChrome" parallel="classes" thread-count="3">
+    <parameter name="browsername" value="chrome"/>
+        <classes>
+            <class name="frameworktwo.base.test.TestLogin"/>
+            <class name="frameworktwo.base.test.TestLogin_negative"/>
+            <class name="frameworktwo.base.test.ProductsTest"/>
+        </classes>
+    </test>
+    <test name="LoginTestFireFox" parallel="classes" thread-count="3">
+    <parameter name="browsername" value="firefox"/>
         <classes>
             <class name="frameworktwo.base.test.TestLogin"/>
             <class name="frameworktwo.base.test.TestLogin_negative"/>
