@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="FrameWorkTwo" parallel="tests" thread-count="2">
-    <test name="LoginTestChrome" parallel="classes" thread-count="3">
+<suite name="FrameWorkTwo" parallel="tests">
+    <test name="LoginTestChrome" parallel="classes">
     <parameter name="browsername" value="chrome"/>
         <classes>
             <class name="frameworktwo.base.test.TestLogin"/>
@@ -9,7 +9,7 @@
             <class name="frameworktwo.base.test.ProductsTest"/>
         </classes>
     </test>
-    <test name="LoginTestFireFox" parallel="classes" thread-count="3">
+    <test name="LoginTestFireFox" parallel="classes">
     <parameter name="browsername" value="firefox"/>
         <classes>
             <class name="frameworktwo.base.test.TestLogin"/>

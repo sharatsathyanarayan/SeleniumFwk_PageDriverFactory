@@ -7,6 +7,8 @@ public class PageDriver {
 	
 	
 	private static final ThreadLocal<WebDriver> threadDriver = new ThreadLocal<WebDriver>();
+	
+	//start of singleton pattern
 	private static PageDriver instance = null;
 	
 	private PageDriver() {
@@ -19,6 +21,9 @@ public class PageDriver {
 		}
 		return instance;
 	}
+	//end of singleton pattern
+	
+	
 	
 	public WebDriver getDriver() {
 		return threadDriver.get();
@@ -31,6 +36,10 @@ public class PageDriver {
 	public static WebDriver getCurrentDriver() {
 		return PageDriver.getInstance().getDriver();
 		
+	}
+	
+	public void removeDriver() {
+	    threadDriver.remove();
 	}
 
 }

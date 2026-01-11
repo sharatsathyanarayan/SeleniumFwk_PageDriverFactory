@@ -24,11 +24,13 @@ public class BaseTest {
 	public void setUp (String browsername) {
 
 		// setting up for local
-
+		//chrome prefs
 		Map<String, Object> chromePrefs = new HashMap<>();
 		chromePrefs.put("credentials_enable_service", false);
 		chromePrefs.put("profile.password_manager_enabled", false);
 		chromePrefs.put("profile.password_manager_leak_detection", false);
+		
+		//chrome options
 		ChromeOptions options = new ChromeOptions();
 		options.setExperimentalOption("prefs", chromePrefs);
 		this.browser = browsername;
@@ -52,9 +54,13 @@ public class BaseTest {
 
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void tearDown() {
-		PageDriver.getCurrentDriver().quit();
+	    WebDriver driver = PageDriver.getCurrentDriver();
+	    if (driver != null) {
+	        driver.quit();
+	        PageDriver.getInstance().removeDriver();
+	    }
 	}
 
 }
